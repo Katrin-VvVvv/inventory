@@ -11,7 +11,9 @@ struct Item {
 	int level;
 };
 
-
+void addItem(vector<Item>& inv, const string& name, const string& type, int level) {
+	inv.push_back({ name, type, level });
+}
 
 int main() {
 	vector<Item> inventory;
