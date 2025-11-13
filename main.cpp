@@ -26,6 +26,16 @@ bool removeItem(vector<Item>& inv, const string& name) {
 	return false;
 }
 
+void printInventory(const vector<Item>& inv) {
+	cout << "\n--- Инвентарь ---\n";
+	for (const auto& item : inv) {
+		cout << "Название: " << item.name
+			<< ", Тип: " << item.type
+			<< ", Уровень: " << item.level << endl;
+	}
+	cout << "--- Конец инвентаря ---\n\n";
+}
+
 int main() {
 	vector<Item> inventory;
 	setlocale(LC_ALL, "");
