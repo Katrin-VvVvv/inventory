@@ -36,6 +36,18 @@ void printInventory(const vector<Item>& inv) {
 	cout << "--- Конец инвентаря ---\n\n";
 }
 
+void sortByLevel(vector<Item>& inv) {
+	sort(inv.begin(), inv.end(),
+		[](const Item& a, const Item& b) { return a.level < b.level; });
+}
+
+vector<Item> filterByType(const vector<Item>& inv, const string& type) {
+	vector<Item> filtered;
+	copy_if(inv.begin(), inv.end(), back_inserter(filtered),
+		[&type](const Item& item) { return item.type == type; });
+	return filtered;
+}
+
 int main() {
 	vector<Item> inventory;
 	setlocale(LC_ALL, "");
