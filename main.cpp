@@ -15,6 +15,17 @@ void addItem(vector<Item>& inv, const string& name, const string& type, int leve
 	inv.push_back({ name, type, level });
 }
 
+bool removeItem(vector<Item>& inv, const string& name) {
+	auto it = find_if(inv.begin(), inv.end(),
+		[&name](const Item& item) { return item.name == name; });
+
+	if (it != inv.end()) {
+		inv.erase(it);
+		return true;
+	}
+	return false;
+}
+
 int main() {
 	vector<Item> inventory;
 	setlocale(LC_ALL, "");
